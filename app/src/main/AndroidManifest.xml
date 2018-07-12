@@ -20,6 +20,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".week23.BigImageViewActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".week23.HYLargeImageActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

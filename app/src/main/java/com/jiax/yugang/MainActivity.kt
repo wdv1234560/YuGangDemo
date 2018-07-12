@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.jiax.yugang.week23.BigImageViewActivity
+import com.jiax.yugang.week23.HYLargeImageActivity
 import com.jiax.yugang.week23.SimpleBigImgActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -13,6 +14,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when(view?.id){
             R.id.button->startActivity(Intent(baseContext,SimpleBigImgActivity::class.java))
             R.id.button2->startActivity(Intent(baseContext, BigImageViewActivity::class.java))
+            R.id.button3->startActivity(Intent(baseContext, HYLargeImageActivity::class.java))
 
         }
     }
@@ -23,5 +25,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         button.setOnClickListener(this)
         button2.setOnClickListener(this)
+        button3.setOnClickListener(this)
     }
 }
