@@ -13,6 +13,11 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk{
+            moduleName "jniTest"
+            abiFilters "armeabi-v7a","x86"
+        }
     }
     buildTypes {
         release {
@@ -20,6 +25,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    externalNativeBuild {
+        cmake {
+            path file('CMakeLists.txt')
+        }
+    }
+
 }
 
 dependencies {

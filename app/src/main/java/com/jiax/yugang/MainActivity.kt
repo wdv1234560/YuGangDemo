@@ -11,10 +11,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
-        when(view?.id){
-            R.id.button->startActivity(Intent(baseContext,SimpleBigImgActivity::class.java))
-            R.id.button2->startActivity(Intent(baseContext, BigImageViewActivity::class.java))
-            R.id.button3->startActivity(Intent(baseContext, HYLargeImageActivity::class.java))
+        when (view?.id) {
+            R.id.button -> startActivity(Intent(baseContext, SimpleBigImgActivity::class.java))
+            R.id.button2 -> startActivity(Intent(baseContext, BigImageViewActivity::class.java))
+            R.id.button3 -> startActivity(Intent(baseContext, HYLargeImageActivity::class.java))
 
         }
     }
@@ -26,5 +26,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         button.setOnClickListener(this)
         button2.setOnClickListener(this)
         button3.setOnClickListener(this)
+
+        val stringFromJNI = stringFromJNI()
+    }
+
+    external fun stringFromJNI(): String
+
+    companion object {
+        init {
+
+            System.loadLibrary("native-lib")
+        }
     }
 }
