@@ -3,6 +3,7 @@ package com.jiax.yugang
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.jiax.yugang.week23.BigImageViewActivity
 import com.jiax.yugang.week23.HYLargeImageActivity
@@ -27,11 +28,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         button2.setOnClickListener(this)
         button3.setOnClickListener(this)
 
-        val stringFromJNI = stringFromJNI()
+        val stringFromJNI = stringFromJNI()+integerFromJNI()
+        val sayHello = sayHello("ddd")
+        Log.d("MainActivity",sayHello)
     }
 
     external fun stringFromJNI(): String
-
+    external fun integerFromJNI(): Int
+    external fun sayHello(jst:String):String
     companion object {
         init {
 
