@@ -4,7 +4,7 @@
 char *_JString2CStr(JNIEnv *pEnv, jstring pJstring);
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_jiax_yugang_MainActivity_stringFromJNI(
+Java_com_jiax_yugang_jni_JniDemoActivity_stringFromJNI(
         JNIEnv *env,
         jobject /* this */) {
     std::string hello = "Hello from C++";
@@ -12,17 +12,57 @@ Java_com_jiax_yugang_MainActivity_stringFromJNI(
 }
 
 extern "C" JNIEXPORT jint JNICALL
-Java_com_jiax_yugang_MainActivity_integerFromJNI(JNIEnv *env, jobject) {
+Java_com_jiax_yugang_jni_JniDemoActivity_integerFromJNI(JNIEnv *env, jobject) {
     std::int32_t hello = 32;
     return hello;
 }
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_jiax_yugang_MainActivity_sayHello(JNIEnv *env, jobject obj, jstring text) {
+Java_com_jiax_yugang_jni_JniDemoActivity_sayHello(JNIEnv *env, jobject obj, jstring text) {
     char *fromJava = _JString2CStr(env, text);
     char *fromC = "abcd";
     strcat(fromJava,fromC);
     return env->NewStringUTF(fromJava);
+}
+
+/**
+    * 将数组中的每个元素增加10
+    *
+    * @param intArray
+    * @return
+    */
+extern "C" JNIEXPORT jintArray JNICALL
+Java_com_jiax_yugang_jni_JniDemoActivity_arrayAddTen(JNIEnv *env, jobject obj, jintArray arr) {
+
+    //1.得到数组长度
+    jsize lenght = env->GetArrayLength(arr);
+
+    //2.得到数组
+    jint * array= env->GetIntArrayElements(arr,JNI_FALSE);
+    int i;
+    for ( i = 0; i < lenght; i++) {
+        *(array+i)+=10;
+        printf("arr=%d\n", *(array+i));
+    }
+
+    return arr;
+}
+/**
+ *  应用: 检查密码是否正确, 如果正确返回200, 否则返回400
+ "123456"
+ * @param pwd
+ * @return
+ */
+extern "C" JNIEXPORT jboolean JNICALL
+Java_com_jiax_yugang_jni_JniDemoActivity_checkPwd(JNIEnv *env, jobject obj, jstring pwd) {
+
+    char * pd = _JString2CStr(env,pwd);
+    char * str = "123456";
+    int result = strcmp(pd,str);
+    if(result==0){
+        return true;
+    }
+    return false;
 }
 
 /**

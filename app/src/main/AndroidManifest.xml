@@ -22,6 +22,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".week23.HYLargeImageActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".jni.JniDemoActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import com.jiax.yugang.jni.JniDemoActivity
 import com.jiax.yugang.week23.BigImageViewActivity
 import com.jiax.yugang.week23.HYLargeImageActivity
 import com.jiax.yugang.week23.SimpleBigImgActivity
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.button -> startActivity(Intent(baseContext, SimpleBigImgActivity::class.java))
             R.id.button2 -> startActivity(Intent(baseContext, BigImageViewActivity::class.java))
             R.id.button3 -> startActivity(Intent(baseContext, HYLargeImageActivity::class.java))
+            R.id.button4 -> startActivity(Intent(baseContext, JniDemoActivity::class.java))
 
         }
     }
@@ -27,19 +29,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         button.setOnClickListener(this)
         button2.setOnClickListener(this)
         button3.setOnClickListener(this)
+        button4.setOnClickListener(this)
 
-        val stringFromJNI = stringFromJNI()+integerFromJNI()
-        val sayHello = sayHello("ddd")
-        Log.d("MainActivity",sayHello)
+
     }
 
-    external fun stringFromJNI(): String
-    external fun integerFromJNI(): Int
-    external fun sayHello(jst:String):String
-    companion object {
-        init {
-
-            System.loadLibrary("native-lib")
-        }
-    }
 }
