@@ -19,7 +19,8 @@ class JniDemoActivity: AppCompatActivity()  {
         val sayHello = sayHello("ddd")
         Log.d("MainActivity",sayHello)
         var array = intArrayOf(1,2,3,4,5)
-        val arrayNew = arrayAddTen(array)
+        val addArray = arrayAddTen(array)
+        val arrayNew = getArray(10)
         for (i in arrayNew.indices){
 
             Log.d("MainActivity","=="+arrayNew[i])
@@ -36,6 +37,7 @@ class JniDemoActivity: AppCompatActivity()  {
     external fun integerFromJNI(): Int
     external fun sayHello(jst:String):String
     external fun arrayAddTen(jarr:IntArray):IntArray
+    external fun getArray(len:Int):IntArray
     external fun checkPwd(pwd:String):Boolean
     companion object {
         init {

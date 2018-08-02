@@ -18,6 +18,12 @@ android {
             moduleName "jniTest"
             abiFilters "armeabi-v7a","x86"
         }
+
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++14"
+            }
+        }
     }
     buildTypes {
         release {
