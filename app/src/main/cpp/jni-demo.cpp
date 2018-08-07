@@ -62,8 +62,11 @@ Java_com_jiax_yugang_java_SimpleJniUtil_init2DArray(JNIEnv *env, jclass type, ji
             temp[j] = i + j;
         }
 
+        //把tmp[]缓冲区中的内容复制到新分配的一维数组中
         env->SetIntArrayRegion(iarr, 0, size, temp);
+        //把一维数组设置到对象数组i的地址中
         env->SetObjectArrayElement(result, i, iarr);
+        //循环最后调用DeleteLocalRef，确保JVM释放掉iarr这个JNI引用
         env->DeleteLocalRef(iarr);
     }
 
