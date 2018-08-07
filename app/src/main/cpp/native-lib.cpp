@@ -57,7 +57,7 @@ Java_com_jiax_yugang_jni_JniDemoActivity_arrayAddTen(JNIEnv *env, jobject obj, j
     * @return
     */
 extern "C" JNIEXPORT jintArray JNICALL
-Java_com_jiax_yugang_jni_JniDemoActivity_getArray(JNIEnv *env, jobject obj,jint len) {
+Java_com_jiax_yugang_jni_JniDemoActivity_getArray(JNIEnv *env, jobject obj, jint len) {
 
     //1.新建长度len数组
     jintArray jarr = env->NewIntArray(len);
@@ -65,7 +65,7 @@ Java_com_jiax_yugang_jni_JniDemoActivity_getArray(JNIEnv *env, jobject obj,jint 
     jint *arr = env->GetIntArrayElements(jarr, NULL);
     //3.赋值
     int i = 0;
-    for(; i < len; i++){
+    for (; i < len; i++) {
         arr[i] = i;
     }
     //4.释放资源
@@ -130,5 +130,4 @@ char *_JString2CStr(JNIEnv *env, jstring jstr) {
     env->ReleaseByteArrayElements(barr, ba, 0);
     return rtn;
 }
-
 
