@@ -7,6 +7,10 @@ package com.jiax.yugang.java;
  */
 public class SimpleJniUtil {
     public static native int doubleData(int data);
-
+    public static native int sumArray(int[] arr);
     public native String getText();
+
+    static {
+        System.loadLibrary("jni-demo");
+    }
 }
