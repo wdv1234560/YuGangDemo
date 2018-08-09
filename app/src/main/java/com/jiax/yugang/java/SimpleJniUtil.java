@@ -10,9 +10,10 @@ public class SimpleJniUtil {
     public static native int sumArray(int[] arr);
     public static native int[] arrayAddTen(int[] arr);
     public static native int[][] init2DArray(int size);
-    public native String getText();
+    public static native String getText();
 
     static {
-        System.loadLibrary("jni-demo");
+        System.loadLibrary("jni-array");
     }
+
 }

@@ -3,6 +3,7 @@ package com.jiax.yugang.jni
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.jiax.yugang.java.JniFiledUtil
 import com.jiax.yugang.java.SimpleJniUtil
 
 /**
@@ -44,6 +45,8 @@ class JniDemoActivity : AppCompatActivity() {
         }
 
         Log.d(TAG, "checkPwd===" + checkPwd + "--checkPwd1==" + checkPwd1)
+        JniFiledUtil().nativeMethod()
+        JniFiledUtil.nativeMethod2()
     }
 
     fun printfArray(array: IntArray) {
