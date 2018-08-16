@@ -14,7 +14,7 @@ public class JniFiledUtil {
     }
 
     public static native void accessField();
-    public native void nativeMethod();//非静态方法
+    public native void nativeMethod();
     public static native void nativeMethod2();
     static {
         System.loadLibrary("jni-filed");

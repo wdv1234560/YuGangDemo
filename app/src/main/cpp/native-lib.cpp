@@ -130,4 +130,3 @@ char *_JString2CStr(JNIEnv *env, jstring jstr) {
     env->ReleaseByteArrayElements(barr, ba, 0);
     return rtn;
 }
-
