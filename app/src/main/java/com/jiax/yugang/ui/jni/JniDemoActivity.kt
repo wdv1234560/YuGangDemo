@@ -1,4 +1,4 @@
-package com.jiax.yugang.jni
+package com.jiax.yugang.ui.jni
 
 import android.os.Bundle
 import android.util.Log

@@ -3,7 +3,7 @@
 //
 
 #include <jni.h>
-
+/*JNIEXPORT和JNICALL这两个宏（被定义在jni.h）确保这个函数在本地库外可见，并且C编译器会进行正确的调用转换。*/
 extern "C"
 JNIEXPORT jint JNICALL
 Java_com_jiax_yugang_java_SimpleJniUtil_sumArray(JNIEnv *env, jclass type, jintArray arr_) {

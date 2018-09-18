@@ -1,4 +1,4 @@
-package com.jiax.yugang.week23
+package com.jiax.yugang.ui.week23
 
 import android.graphics.BitmapFactory
 import android.os.Bundle

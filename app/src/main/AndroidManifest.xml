@@ -16,13 +16,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".week23.SimpleBigImgActivity"
+        <activity android:name="com.jiax.yugang.ui.week23.SimpleBigImgActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".week23.BigImageViewActivity"
+        <activity android:name="com.jiax.yugang.ui.week23.BigImageViewActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".week23.HYLargeImageActivity"
+        <activity android:name="com.jiax.yugang.ui.week23.HYLargeImageActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".jni.JniDemoActivity"
+        <activity android:name="com.jiax.yugang.ui.jni.JniDemoActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.animator.AnimatorActivity"
             android:screenOrientation="portrait"/>
     </application>
 

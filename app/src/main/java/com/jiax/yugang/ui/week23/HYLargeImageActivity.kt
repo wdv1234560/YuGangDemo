@@ -1,7 +1,6 @@
-package com.jiax.yugang.week23
+package com.jiax.yugang.ui.week23
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import com.jiax.yugang.R
 import kotlinx.android.synthetic.main.activity_hy_large_image.*

@@ -3,12 +3,12 @@ package com.jiax.yugang
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import com.jiax.yugang.jni.JniDemoActivity
-import com.jiax.yugang.week23.BigImageViewActivity
-import com.jiax.yugang.week23.HYLargeImageActivity
-import com.jiax.yugang.week23.SimpleBigImgActivity
+import com.jiax.yugang.ui.animator.AnimatorActivity
+import com.jiax.yugang.ui.jni.JniDemoActivity
+import com.jiax.yugang.ui.week23.BigImageViewActivity
+import com.jiax.yugang.ui.week23.HYLargeImageActivity
+import com.jiax.yugang.ui.week23.SimpleBigImgActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.button2 -> startActivity(Intent(baseContext, BigImageViewActivity::class.java))
             R.id.button3 -> startActivity(Intent(baseContext, HYLargeImageActivity::class.java))
             R.id.button4 -> startActivity(Intent(baseContext, JniDemoActivity::class.java))
+            R.id.cancel -> startActivity(Intent(baseContext, AnimatorActivity::class.java))
 
         }
     }
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         button2.setOnClickListener(this)
         button3.setOnClickListener(this)
         button4.setOnClickListener(this)
+        cancel.setOnClickListener(this)
 
 
     }
