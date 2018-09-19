@@ -37,7 +37,24 @@ class AnimatorActivity : AppCompatActivity(), View.OnClickListener {
          * */
         valueAnimator?.repeatMode = ValueAnimator.REVERSE
 
-        valueAnimator?.addListener(object : Animator.AnimatorListener {
+        valueAnimator?.addUpdateListener {
+            textView.textSize = ((it.animatedValue as Float) * 15).toFloat()
+            textView.setTextColor(((it.animatedValue as Float) + Color.BLUE).toInt())
+//            Log.d(TAG, "animatedValue=" + it.animatedValue.toString())
+        }
+        // 初始alpha值为1，scale值为1
+        // 结束alpha值为0，scale值为2，相当于透明度变为0，尺寸放大到2倍
+        objectAnimator = ValueAnimator.ofObject(MyEvaluator(), ValueObject(1f, 1f), ValueObject(0f, 2f))
+        objectAnimator?.duration = 2000
+        objectAnimator?.repeatMode = ValueAnimator.RESTART
+        objectAnimator?.repeatCount = ValueAnimator.INFINITE//无限播放
+        objectAnimator?.addUpdateListener {
+            val valueObject = it.animatedValue as ValueObject
+            imageView.alpha = valueObject.alphaValue
+            imageView.scaleX = valueObject.scaleValue
+            imageView.scaleY = valueObject.scaleValue
+        }
+        objectAnimator?.addListener(object : Animator.AnimatorListener {
             override fun onAnimationRepeat(animation: Animator?) {
 
                 Log.d(TAG, "repeat")
@@ -56,25 +73,6 @@ class AnimatorActivity : AppCompatActivity(), View.OnClickListener {
             }
 
         })
-
-        valueAnimator?.addUpdateListener {
-            textView.textSize = ((it.animatedValue as Float) * 15).toFloat()
-            textView.setTextColor(((it.animatedValue as Float) + Color.BLUE).toInt())
-            Log.d(TAG, "animatedValue=" + it.animatedValue.toString())
-        }
-        // 初始alpha值为1，scale值为1
-        // 结束alpha值为0，scale值为2，相当于透明度变为0，尺寸放大到2倍
-        objectAnimator = ValueAnimator.ofObject(MyEvaluator(), ValueObject(1f, 1f), ValueObject(0f, 2f))
-        objectAnimator?.duration = 2000
-        objectAnimator?.repeatMode = ValueAnimator.RESTART
-        objectAnimator?.repeatCount = ValueAnimator.INFINITE//无限播放
-        objectAnimator?.addUpdateListener {
-            val valueObject = it.animatedValue as ValueObject
-            imageView.alpha = valueObject.alphaValue
-            imageView.scaleX = valueObject.scaleValue
-            imageView.scaleY = valueObject.scaleValue
-        }
-
         start.setOnClickListener(this)
         cancel.setOnClickListener(this)
 
@@ -82,7 +80,8 @@ class AnimatorActivity : AppCompatActivity(), View.OnClickListener {
 
 
     fun start() {
-        valueAnimator?.start()
+        douLoadingView.start()
+//        valueAnimator?.start()
         objectAnimator?.start()
     }
 
